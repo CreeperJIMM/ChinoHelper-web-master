@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>智乃小幫手 - 開源項目</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/layout.css" rel="stylesheet" />
+    </head>
+        <!--layout-->
+        <script src="/js/getinfo.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="/js/newlayout.js"></script>
+        <script>
+            let vib = function() {if(navigator.vibrate) navigator.vibrate(50);}
+        </script>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">智乃小幫手</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" onclick="vib()" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="/">首頁</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/about">關於</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact">聯絡我們</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/pricing">加入會員</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">部落格</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="/blog-home">所有文章</a></li>
+                                    <li><a class="dropdown-item" href="/update-log">更新日記</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">資源</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                                    <li><a class="dropdown-item" href="/portfolio-overview">開源</a></li>
+                                    <li><a class="dropdown-item" href="https://chinohelper.xyz/docs">官方文檔</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">智乃選單</h5>
+                  <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                <div>
+                    <div class="list-group">
+                        <a href="/" class="list-group-item list-group-item-action list-group-item-dark">首頁</a>
+                        <a href="/about" class="list-group-item list-group-item-info">關於我們</a>
+                        <a href="/about/chino" class="list-group-item list-group-item-info">認識智乃</a>
+                        <a href="/info" class="list-group-item list-group-item-info">機器人資訊</a>
+                        <hr class="dropdown-divider">用戶功能
+                        <a href="/login/discord" class="list-group-item list-group-item-action list-group-item-dark">用戶面板</a>
+                        <a href="/login" class="list-group-item list-group-item-action list-group-item-secondary">登入狀態</a>
+                        <a href="/login/logout" class="list-group-item list-group-item-action list-group-item-secondary">登出</a>
+                        <hr class="dropdown-divider">指令功能
+                        <a href="/cmd" class="list-group-item list-group-item-action list-group-item-dark">指令區</a>
+                        <hr class="dropdown-divider">伺服器功能
+                        <a href="/guild/dashboard" class="list-group-item list-group-item-action list-group-item-dark">伺服器列表</a>
+                        <a href="/guild/music/dashboard" class="list-group-item list-group-item-action list-group-item-secondary">音樂控制區</a>
+                      </div>
+                </div>
+                  <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                      語言設置
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="#">繁體中文</a></li>
+                      <li><a class="dropdown-item" href="#">English</a></li>
+                      <li><a class="dropdown-item" href="#">日本語</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <font size="5%"> 
+                <div id="Nword"></div> 
+                <div id="Nchoose"></div>
+            </font>
+            <!-- Page Content-->
+            <section class="py-5">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">苦力怕怕ㄉ開源</h1>
+                        <p class="lead fw-normal text-muted mb-0">你可以參考但不可直接複製-w-</p>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="https://opengraph.githubassets.com/934149d7f998cc3a1bc9bedbe45d9517dc0b850185b3ce69d20c3fbc7076a1ff/CreeperJIMM/ChinoBot-v3" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link text-light" href="https://github.com/CreeperJIMM/ChinoBot-v3">智乃小幫手主代碼</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="https://opengraph.githubassets.com/4dd04a0a9d5cfd2929d0a1c64ca9947e06056a91369efe126a19690e1349ff49/CreeperJIMM/ChinoMusic-v1" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link text-light" href="https://github.com/CreeperJIMM/ChinoMusic-v1">智乃小幫手音樂代碼</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5 mb-lg-0">
+                                <img class="img-fluid rounded-3 mb-3" src="https://opengraph.githubassets.com/4220e212f631fe73c21e359432de15a533bd2976e3a6ade0b07b6ae802d7bf2a/CreeperJIMM/ChinoWeb" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link text-light" href="https://github.com/CreeperJIMM/ChinoWeb">智乃小幫手網站代碼</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative">
+                                <img class="img-fluid rounded-3 mb-3" src="https://opengraph.githubassets.com/2cdfc315a780d64629d577fd54a20adefb93685029b1829212a29fc376f7343b/CreeperJIMM/CreeperJIMM.github.io" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link text-light" href="https://github.com/CreeperJIMM/CreeperJIMM.github.io">苦力怕怕的宣傳頁</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-5 bg-dark">
+                <div class="container px-5 my-5">
+                    <h2 class="display-4 fw-bolder mb-4">苦力怕怕的github</h2>
+                    <a class="btn btn-lg btn-primary" href="https://github.com/CreeperJIMM">點我查閱</a>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; 智乃小幫手 2021</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="/privacy">隱私權條款</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="/terms">服務條款</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="https://discord.gg/P2yg5V2">錯誤回報</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
