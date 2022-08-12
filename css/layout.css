@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+
+.Name {
+    color: #9595f8;
+}
+.text {
+    width: 600px;
+    height: 10px;
+    right: 22px;
+    display: block;
+    position: relative;
+    font-family: 'Noto Sans TC',sans-serif;
+    /* animation 參數設定 */
+    animation-name: MoveToDown;    /*動畫名稱，需與 keyframe 名稱對應*/
+    animation-duration: 1.5s;    /*動畫持續時間，單位為秒*/
+    animation-delay: 0s;    /*動畫延遲開始時間*/
+    animation-iteration-count: 1;    /*動畫次數，infinite 為無限次*/    
+}
+
+/* 關鍵影格(@keyframe) */
+@keyframes MoveToDown {
+    from {right: 0%}
+    to { right: 23px; }
+}
+.dc {
+    text-decoration:none;
+    position: fixed;bottom:100;
+    transform: translate(0px, 0px);
+    font-size: 80%; 
+    background-color: rgba(50, 99, 22, 0.405);
+    font-family: 'Noto Sans TC',sans-serif;
+}
+#Nword {
+    background-color: rgba(83, 95, 163, 0.761);
+    font-family: 'Noto Sans TC',sans-serif;
+    text-decoration:none;
+    text-align:right;
+    position: fixed;
+    top:50px;
+    right:0;
+    width: auto;
+}
+#Nchoose {
+    background-color: rgba(83, 95, 163, 0.761);
+    font-family: 'Noto Sans TC',sans-serif;
+    text-decoration:none;
+    text-align:right;
+    position: fixed;
+    top:100px;
+    right:0;
+    width: 120px;
+}
+#Nword img .user_avatar{
+    margin-top: 10px;
+}
+#Nword img {
+    margin-top: 0px;
+}
+#NtopSet {
+    font-weight:bold;
+    background-color: rgba(189, 183, 107, 0.87);
+    text-align: left; 
+    position: fixed;
+    top:0;
+    width: 40px;
+    left: 0px;
+}
+#Ntop {
+    text-align: left; 
+    position: fixed;
+    top:0;
+    left: 0;
+}
+#GoogleADs1 {
+    background-color: rgba(255, 48, 89, 0.337);
+    text-align: center;
+    align-items: center;  
+    position: fixed;
+    justify-content: center;
+    right: 0;
+    top: 20%;
+    width: 160px;
+    height: 600px;
+    display: flex;
+}
+#GoogleADs2 {
+    background-color: rgba(255, 48, 89, 0.342);
+    position:fixed;
+    text-align: center;
+    align-items: center;  
+    justify-content: center;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px;
+    width: 320px;
+}
+@media only screen and (max-width: 500px) {
+    #Nword{
+        font-size: 22px;
+    }
+
+    #Nword img{
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+    #Ntop{
+        font-size: 30px;
+    }
+    #Nchoose {
+        top:91px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    #GoogleADs1 {
+        display: none;
+    }
+    #GoogleADs2 {
+        top: 110px;
+        font-size: 15px;
+        block-size: 25px;
+    }
+}
