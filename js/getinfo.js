@@ -1,3 +1,4 @@
+let ApiURL = "https://api.chinohelper.xyz"
 var getUser = async(id) => {
     try {
         let user2 =  await (await fetch('/api/user',{method: "POST",body: new URLSearchParams({
