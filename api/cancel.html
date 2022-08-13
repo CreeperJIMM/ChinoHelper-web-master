@@ -5,13 +5,12 @@
     </head>
     <script>
         if(opener) {
-            opener.location.herf = "/login/cancel"
-            setTimeout(() => {
-            window.close();        
-            }, 200);
+            opener.location.href = "/login/cancel"
+            window.close();
         }
     </script>
     <body>
-        跳轉中...
+        此頁面會自動關閉
+        若沒有關閉請點 <button onclick="window.close();">這裡</button>
     </body>
 </html>
