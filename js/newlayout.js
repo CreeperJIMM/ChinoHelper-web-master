@@ -56,14 +56,17 @@ $(document).ready(function () {
         document.location.href = '/banned'
     }
     names = "Discord登入"
-    document.getElementById('Nchoose').innerHTML = `<a href="/login" style="color: mediumspringgreen;">點我登入</a>`
+    var desc = `<a href="/login" style="color: mediumspringgreen;">點我登入</a>`
     let user = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Discord登入" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
-    if (!word.Error) {
+    if (word) {
         names = word.username
         user = `<dc> <img id="user_avatar" src="https://cdn.discordapp.com/avatars/${word.id}/${word.avatar}.png" title="${word.username}" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b> </dc>`;
-        document.getElementById('Nchoose').innerHTML = `|<a href="/login/discord" style="color: mediumspringgreen;">個人</a>|<a href="/login/logout" style="color: mediumspringgreen;">登出</a>|<br>|<a href="/login" style="color: mediumspringgreen;">登入狀態</a>|`
+        sesc = `|<a href="/login/discord" style="color: mediumspringgreen;">個人</a>|<a href="/login/logout" style="color: mediumspringgreen;">登出</a>|<br>|<a href="/login" style="color: mediumspringgreen;">登入狀態</a>|`
     };
-    setTimeout((async) => { document.getElementById('Nword').innerHTML = user }, 50);
+    setTimeout(async() => {
+        document.getElementById('Nword').innerHTML = user
+        document.getElementById('Nchoose').innerHTML = desc
+    }, 50);
     /*
     if(isMobileDevice()) {setTimeout(() => {
     document.getElementById('googleADs2').innerHTML = '<font size="4.8%"> <div id="GoogleADs2" style="display:flex;">我們需要廣告以維持經營。<br>請關閉您的廣告攔截程式。</div> </font>'}, 500);}else{
