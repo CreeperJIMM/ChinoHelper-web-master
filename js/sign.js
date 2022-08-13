@@ -2,7 +2,7 @@ var discordlogin = async function () {
     let w = document.body.clientWidth / 3;
     let h = document.body.clientHeight / 3;
     window.open(
-        "/login/discord",
+        "/api/discord",
         "newwindow",
         "width=500,height=810,top=" +
         h +
@@ -15,7 +15,7 @@ var googlelogin = async function () {
     let w = document.body.clientWidth / 3;
     let h = document.body.clientHeight / 3;
     window.open(
-        "login/google",
+        "/api/google",
         "newwindow",
         "width=500,height=800,top=" +
         h +
