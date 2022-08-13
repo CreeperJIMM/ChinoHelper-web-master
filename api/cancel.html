@@ -6,7 +6,9 @@
     <script>
         if(opener) {
             opener.location.herf = "/login/cancel"
-            window.close()
+            setTimeout(() => {
+            window.close();        
+            }, 200);
         }
     </script>
     <body>
