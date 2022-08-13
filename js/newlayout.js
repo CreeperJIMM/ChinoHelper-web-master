@@ -58,7 +58,7 @@ $(document).ready(function () {
     names = "Discord登入"
     var desc = `<a href="/login" style="color: mediumspringgreen;">點我登入</a>`
     let user = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Discord登入" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
-    if (word) {
+    if (!word.Error) {
         names = word.username
         user = `<dc> <img id="user_avatar" src="https://cdn.discordapp.com/avatars/${word.id}/${word.avatar}.png" title="${word.username}" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b> </dc>`;
         sesc = `|<a href="/login/discord" style="color: mediumspringgreen;">個人</a>|<a href="/login/logout" style="color: mediumspringgreen;">登出</a>|<br>|<a href="/login" style="color: mediumspringgreen;">登入狀態</a>|`

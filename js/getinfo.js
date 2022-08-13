@@ -1,3 +1,3 @@
 var getData = async(option) => {
- return {}
+ return {Error:"hi"}
 }
