@@ -6,6 +6,9 @@
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 var Lang = document.cookie.replace(/(?:(?:^|.*;\s*)i18nLang\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+console.log(Lang)
+console.log(navigator.language)
 if(!Lang && navigator.language) {
-    document.cookie += `i18nLang=${navigator.language}`
+    console.log("hi")
+    document.cookie = `i18nLang=${navigator.language}; domain=chinohelper.xyz`
 }
