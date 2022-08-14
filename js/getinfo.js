@@ -21,13 +21,13 @@ var getData = async (option) => {
     try {
         let body = {}
         if (option) {
-            body = {"filter": JSON.stringify(option)}
+            body = {"filter": option}
         }
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
             method: "POST",
             credentials: 'include',
             headers: headers,
-            body: body
+            body: {body}
         })).json()
         return data;
     } catch (error) {
