@@ -20,6 +20,7 @@ var getData = async (option) => {
     try {
         let body = {}
         if (option) {
+            option = JSON.stringify(option)
             body = new URLSearchParams({ option })
         }
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
