@@ -22,7 +22,7 @@ var getData = async (option) => {
         let body = {}
         if (option) {
             option = JSON.stringify(option)
-            body = new URLSearchParams({ option })
+            body = {filter: new URLSearchParams({ option })}
         }
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
             method: "POST",
