@@ -89,7 +89,7 @@ var header = `<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div id="Nchoose"></div>
 </font>`
 
-var footer = `<footer class="bg-dark py-4 mt-auto">
+var footer = `
 <div class="container px-5">
     <div class="row align-items-center justify-content-between flex-column flex-sm-row">
         <div class="col-auto">
@@ -105,5 +105,4 @@ var footer = `<footer class="bg-dark py-4 mt-auto">
             <a class="link-light small" href="https://discord.gg/P2yg5V2">錯誤回報</a>
         </div>
     </div>
-</div>
-</footer>`
+</div>`
