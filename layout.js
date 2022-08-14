@@ -89,7 +89,7 @@ var header = `<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div id="Nchoose"></div>
 </font>`
 
-let footer = `<footer class="bg-dark py-4 mt-auto">
+var footer = `<footer class="bg-dark py-4 mt-auto">
 <div class="container px-5">
     <div class="row align-items-center justify-content-between flex-column flex-sm-row">
         <div class="col-auto">
