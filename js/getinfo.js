@@ -19,15 +19,14 @@ var iflogin = async () => {
 }
 var getData = async (option) => {
     try {
-        let body = {}
-        if (option) {
-            body = {"filter": option}
-        }
+        console.log(option)
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
             method: "POST",
             credentials: 'include',
             headers: headers,
-            body: {body}
+            body: new URLSearchParams({
+                filter: option
+            })
         })).json()
         return data;
     } catch (error) {
