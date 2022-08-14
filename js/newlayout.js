@@ -40,7 +40,9 @@ $(document).ready(function () {
 });
 (async () => {
     try {
-        var word = await getData(["username", "id", "avatar"])
+        var iflogin = await iflogin()
+        if(!iflogin.ok) return;
+        var userdata = await getData(["username", "id", "avatar"])
     } catch (error) {
         return;
     }
@@ -51,16 +53,18 @@ $(document).ready(function () {
     console.log("%c 300%是你被騙了!", 'color:blue;background:darkseagreen;')
     console.log("%c 千萬不要輸入任何代碼在這裡!", 'color:blue;background:darkseagreen;')
     let url = new URL(document.URL)
-    if (word.Error == "User_is_banned.") {
-        if (url.pathname === "/banned") return;
-        document.location.href = '/banned'
+    if(!userdata.ok) {
+        if (userdata.message == "User_is_banned") {
+            if (url.pathname === "/banned") return;
+            document.location.href = '/banned'
+        }
     }
     names = "Discord登入"
     var desc = `<a href="/sign" style="color: mediumspringgreen;">點我登入</a>`
     let user = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Discord登入" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
-    if (!word.Error) {
-        names = word.username
-        user = `<dc> <img id="user_avatar" src="https://cdn.discordapp.com/avatars/${word.id}/${word.avatar}.png" title="${word.username}" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b> </dc>`;
+    if (userdata.data) {
+        names = userdata.username
+        user = `<dc> <img id="user_avatar" src="https://cdn.discordapp.com/avatars/${userdata.data.id}/${userdata.data.avatar}.png" title="${userdata.data.username}" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b> </dc>`;
         sesc = `|<a href="/login/discord" style="color: mediumspringgreen;">個人</a>|<a href="/login/logout" style="color: mediumspringgreen;">登出</a>|<br>|<a href="/login" style="color: mediumspringgreen;">登入狀態</a>|`
     };
     setTimeout(async() => {
