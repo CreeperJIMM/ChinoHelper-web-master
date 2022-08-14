@@ -21,7 +21,7 @@ var getData = async (option) => {
     try {
         let body = {}
         if (option) {
-            body = {"filter": option}
+            body = {"filter": JSON.stringify(option)}
         }
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
             method: "POST",
