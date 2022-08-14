@@ -24,9 +24,9 @@ var getData = async (option) => {
             method: "POST",
             credentials: 'include',
             headers: headers,
-            body: new URLSearchParams({
-                filter: option
-            })
+            body: {
+                filter: new URLSearchParams({option})
+            }
         })).json()
         return data;
     } catch (error) {
