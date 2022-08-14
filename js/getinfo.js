@@ -2,13 +2,13 @@ let errorObj = { ok: false, data: null }
 let baseURL = "https://api.chinohelper.xyz"
 let headers = {
     "Content-Type": "application/json; charset=UTF-8",
-    "withCredentials": true
 }
 
 var iflogin = async () => {
     try {
         let data = await (await fetch(`${baseURL}/user/dc/haslogin`, {
             method: "GET",
+            withCredentials: true,
             headers: headers
         })).json()
         return data
@@ -25,6 +25,7 @@ var getData = async (option) => {
         }
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
             method: "POST",
+            withCredentials: true,
             headers: headers,
             body: body
         })).json()
