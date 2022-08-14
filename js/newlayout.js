@@ -63,9 +63,9 @@ $(document).ready(function () {
     var desc = `<a href="/sign" style="color: mediumspringgreen;">點我登入</a>`
     let user = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Discord登入" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
     if (userdata.data) {
-        names = userdata.username
+        names = userdata.data.username
         user = `<dc> <img id="user_avatar" src="https://cdn.discordapp.com/avatars/${userdata.data.id}/${userdata.data.avatar}.png" title="${userdata.data.username}" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b> </dc>`;
-        sesc = `|<a href="/login/discord" style="color: mediumspringgreen;">個人</a>|<a href="/login/logout" style="color: mediumspringgreen;">登出</a>|<br>|<a href="/login" style="color: mediumspringgreen;">登入狀態</a>|`
+        desc = `|<a href="/login/discord" style="color: mediumspringgreen;">個人</a>|<a href="/login/logout" style="color: mediumspringgreen;">登出</a>|<br>|<a href="/login" style="color: mediumspringgreen;">登入狀態</a>|`
     };
     setTimeout(async() => {
         document.getElementById('Nword').innerHTML = user
