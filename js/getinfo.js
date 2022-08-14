@@ -3,7 +3,12 @@ let baseURL = "https://api.chinohelper.xyz"
 
 var iflogin = async () => {
     try {
-        let data = await (await fetch(`${baseURL}/user/dc/haslogin`, { method: "GET" })).json()
+        let data = await (await fetch(`${baseURL}/user/dc/haslogin`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })).json()
         return data
     } catch (error) {
         console.log(error)
