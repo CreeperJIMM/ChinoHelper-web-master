@@ -23,12 +23,11 @@
 </script>
 <script>
     $(document).ready(() => {
-        console.log($("#header-place"))
-        $("#header-place").html(header);
-        $("#footer-place").html(footer);
+        document.getElementById("header-place").innerHTML = header;
+        document.getElementById("footer-place").innerHTML = footer; 
     })
 </script>
-<div class="header-place">讀取中</div>
+<div id="header-place">讀取中</div>
 <body class="d-flex flex-column h-100">
     <!-- Page Content-->
     <header class="bg-gray py-5">
@@ -48,5 +47,5 @@
     <!-- Core theme JS-->
     <script src="/js/scripts.js"></script>
 </body>
-<div class="footer-place"></div>
+<div id="footer-place"></div>
 </html>
