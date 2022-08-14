@@ -8,7 +8,7 @@ var iflogin = async () => {
     try {
         let data = await (await fetch(`${baseURL}/user/dc/haslogin`, {
             method: "GET",
-            withCredentials: true,
+            credentials: 'include',
             headers: headers
         })).json()
         return data
@@ -25,7 +25,7 @@ var getData = async (option) => {
         }
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
             method: "POST",
-            withCredentials: true,
+            credentials: 'include',
             headers: headers,
             body: body
         })).json()
