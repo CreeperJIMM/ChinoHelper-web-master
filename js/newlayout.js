@@ -56,7 +56,7 @@ $(document).ready(function () {
         document.location.href = '/banned'
     }
     names = "Discord登入"
-    var desc = `<a href="/login" style="color: mediumspringgreen;">點我登入</a>`
+    var desc = `<a href="/sign" style="color: mediumspringgreen;">點我登入</a>`
     let user = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Discord登入" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
     if (!word.Error) {
         names = word.username
