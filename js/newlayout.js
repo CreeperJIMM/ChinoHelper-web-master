@@ -45,12 +45,9 @@ $(document).ready(function () {
     } catch (error) {
         return;
     }
-    console.log("%c 等一下！！！", 'color:blue;background:yellow;')
-    console.log("%c 等一下！！！", 'color:blue;background:yellow;')
-    console.log("%c 等一下！！！", 'color:blue;background:yellow;')
-    console.log("%c 如果有人叫你在這裡輸入東西", 'color:blue;background:darkseagreen;')
-    console.log("%c 300%是你被騙了!", 'color:blue;background:darkseagreen;')
-    console.log("%c 千萬不要輸入任何代碼在這裡!", 'color:blue;background:darkseagreen;')
+    console.log("%c 等一下！！！", 'color:red;background:yellow;font-size:36px;')
+    console.log("%c 如果有人叫你在這裡貼上任何程式碼!!  %c 百分百是你被騙了!!", 'color:blue;background:darkseagreen;font-size:26px;')
+    console.log("%c 使用這個控制台均有可能讓惡意攻擊者使用 Self-XSS 的方式 %c 來冒用你的身分並且竊取資訊!!", 'color:white;font-size:26px;')
     if(!login.ok) return;
     let url = new URL(document.URL)
     if(!userdata.ok) {
