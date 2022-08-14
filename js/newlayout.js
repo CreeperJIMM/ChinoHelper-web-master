@@ -41,7 +41,6 @@ $(document).ready(function () {
 (async () => {
     try {
         var iflogin = await iflogin()
-        if(!iflogin.ok) return;
         var userdata = await getData(["username", "id", "avatar"])
     } catch (error) {
         return;
@@ -52,6 +51,7 @@ $(document).ready(function () {
     console.log("%c 如果有人叫你在這裡輸入東西", 'color:blue;background:darkseagreen;')
     console.log("%c 300%是你被騙了!", 'color:blue;background:darkseagreen;')
     console.log("%c 千萬不要輸入任何代碼在這裡!", 'color:blue;background:darkseagreen;')
+    if(!iflogin.ok) return;
     let url = new URL(document.URL)
     if(!userdata.ok) {
         if (userdata.message == "User_is_banned") {
