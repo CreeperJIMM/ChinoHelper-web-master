@@ -19,7 +19,6 @@ var iflogin = async () => {
 }
 var getData = async (option) => {
     try {
-        console.log(option)
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
             method: "POST",
             credentials: 'include',
@@ -27,6 +26,19 @@ var getData = async (option) => {
             body: JSON.stringify({filter: option})
         })).json()
         return data;
+    } catch (error) {
+        console.log(error)
+        return errorObj;
+    }
+}
+var getEmail = async () => {
+    try {
+        let data = await (await fetch(`${baseURL}/user/dc/email`, {
+            method: "GET",
+            credentials: 'include',
+            headers: headers
+        })).json()
+        return data
     } catch (error) {
         console.log(error)
         return errorObj;
