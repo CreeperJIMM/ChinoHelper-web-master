@@ -9,3 +9,6 @@ var Lang = document.cookie.replace(/(?:(?:^|.*;\s*)i18nLang\s*\=\s*([^;]*).*$)|^
 if(!Lang && navigator.language) {
     document.cookie = `i18nLang=${navigator.language.toLocaleLowerCase()}; domain=chinohelper.xyz`
 }
+var vib = function () {
+    if (navigator.vibrate) navigator.vibrate(50);
+};

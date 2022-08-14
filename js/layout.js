@@ -1,3 +1,8 @@
+$(document).ready(() => {
+    document.getElementById("header-place").innerHTML = header;
+    document.getElementById("footer-place").innerHTML = footer;
+})
+
 var header = `<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
         <a class="navbar-brand" href="/">智乃小幫手</a>
