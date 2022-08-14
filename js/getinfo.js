@@ -13,12 +13,16 @@ var iflogin = async () => {
 var getData = async (option) => {
     try {
         let body = null
-        if(option) {
+        if (option) {
             option = JSON.stringify(option)
-            body = new URLSearchParams({option})
+            body = new URLSearchParams({ option })
         }
         let data = await (await fetch(`${baseURL}/user/dc/data`, {
-            method: "POST", body: body
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: body
         })).json()
         return data;
     } catch (error) {
