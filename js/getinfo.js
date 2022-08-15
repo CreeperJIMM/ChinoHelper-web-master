@@ -9,11 +9,12 @@ var iflogin = async () => {
             method: "HEAD",
             credentials: 'include',
             headers: headers
-        })).json()
-        return data
+        }))
+        if(data.status != "204" || data.status != "200") return false;
+        return true;
     } catch (error) {
         console.log(error)
-        return errorObj;
+        return false;
     }
 }
 var getData = async (option) => {
