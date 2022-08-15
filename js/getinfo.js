@@ -1,7 +1,7 @@
 let errorObj = { ok: false, data: null }
 let baseURL = "https://api.chinohelper.xyz"
 let headers = {
-    'content-Type':'multipart/form-data'
+    'content-Type':'application/json'
 }
 
 var iflogin = async () => {
