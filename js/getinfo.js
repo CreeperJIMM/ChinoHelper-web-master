@@ -1,15 +1,14 @@
 let errorObj = { ok: false, data: null }
 let baseURL = "https://api.chinohelper.xyz"
 let headers = {
-    'Content-Type':'text/plain'
+    'content-Type':'multipart/form-data'
 }
 
 var iflogin = async () => {
     try {
         let data = await (await fetch(`${baseURL}/user/dc/haslogin`, {
             method: "HEAD",
-            credentials: 'include',
-            headers: headers
+            credentials: 'include'
         }))
         if(data.status == 204 || data.status == 200) return true;
         return false;
