@@ -10,8 +10,8 @@ var iflogin = async () => {
             credentials: 'include',
             headers: headers
         }))
-        if(data.status != "204" || data.status != "200") return false;
-        return true;
+        if(data.status == 204 || data.status == 200) return true;
+        return false;
     } catch (error) {
         console.log(error)
         return false;
