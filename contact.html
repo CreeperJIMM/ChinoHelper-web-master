@@ -27,7 +27,7 @@
     console.log($('#contactForm').serializeArray())
     $.ajax({
            type: "POST",
-           url: "https://"+document.domain+"/api/submitform",
+           url: "https://api.chinohelper.xyz/api/contact/submitform",
            data: $('#contactForm').serializeArray(), // serializes the form's elements.
            crossDomain: true,
            success: function(data) {
