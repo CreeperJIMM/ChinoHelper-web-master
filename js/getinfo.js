@@ -6,7 +6,7 @@ let headers = {
 var iflogin = async () => {
     try {
         let data = await (await fetch(`${baseURL}/user/dc/haslogin`, {
-            method: "GET",
+            method: "HEAD",
             credentials: 'include',
             headers: headers
         })).json()
