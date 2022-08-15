@@ -41,11 +41,11 @@
     getData(["username","id","avatar","discriminator","email"]).then((user) => {
         if(user.data.username) {
             //$("#username").attr(`disabled`,true)
-            $("#username").val(`${user.username}#${user.discriminator}`)
+            $("#username").val(`${user.data.username}#${user.data.discriminator}`)
         }
         if(user.data.email) {
             //$("#useremail").attr(`disabled`,true)
-            $("#useremail").val(`${user.email}`)
+            $("#useremail").val(`${user.data.email}`)
         }
     }).catch(console.log)
     })
