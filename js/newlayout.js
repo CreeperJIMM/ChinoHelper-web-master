@@ -44,14 +44,14 @@ $(document).ready(function () {
 (async () => {
     try {
         var login = await iflogin()
+        console.log("%c等一下！！！", 'color:red;background:gray;font-size:72px;font-weight:bold;')
+        console.log("%c如果有人叫你在這裡貼上任何程式碼!! \n百分百是你被騙了!!", 'color:blue;background:darkseagreen;font-size:26px;font-weight:bold;')
+        console.log("%c使用這個主控台均有可能讓惡意攻擊者使用 Self-XSS 的方式 \n來冒用你的身分並且竊取資訊!!", 'color:red;font-size:22px;font-weight:bold;')    
+        if(!login) return;
         var userdata = await getData(["username", "id", "avatar"])
     } catch (error) {
         return;
     }
-    console.log("%c等一下！！！", 'color:red;background:gray;font-size:72px;font-weight:bold;')
-    console.log("%c如果有人叫你在這裡貼上任何程式碼!! \n百分百是你被騙了!!", 'color:blue;background:darkseagreen;font-size:26px;font-weight:bold;')
-    console.log("%c使用這個主控台均有可能讓惡意攻擊者使用 Self-XSS 的方式 \n來冒用你的身分並且竊取資訊!!", 'color:red;font-size:22px;font-weight:bold;')
-    if(!login) return;
     let url = new URL(document.URL)
     if(!userdata.ok) {
         if (userdata.message == "User_is_banned") {
