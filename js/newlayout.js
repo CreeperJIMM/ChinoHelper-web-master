@@ -39,7 +39,7 @@ $(document).ready(function () {
     });
     names = "Loading"
     document.getElementById('Nword').innerHTML = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Loading..." width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
-    document.getElementById('Nchoose').innerHTML = `<a href="/sign" style="color: mediumspringgreen;">連接伺服器中...</a>`
+    document.getElementById('Nchoose').innerHTML = `<a href="/sign" style="color: mediumspringgreen;">Link server..</a>`
 });
 (async () => {
     try {
