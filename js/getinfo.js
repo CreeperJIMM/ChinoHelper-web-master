@@ -23,7 +23,24 @@ var getData = async (option) => {
             method: "POST",
             credentials: 'include',
             headers: headers,
-            body: {'filter': option}
+            body: new URLSearchParams({
+                "filter": option
+            })
+        })).json()
+        return data;
+    } catch (error) {
+        console.log(error)
+        return errorObj;
+    }
+}
+var getAllData = async (email) => {
+    let text = ''
+    if(email) text = '&email=true'
+    try {
+        let data = await (await fetch(`${baseURL}/user/dc/data`+text, {
+            method: "GET",
+            credentials: 'include',
+            headers: headers
         })).json()
         return data;
     } catch (error) {
