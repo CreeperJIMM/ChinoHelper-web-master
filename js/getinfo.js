@@ -24,7 +24,7 @@ var getData = async (option) => {
             credentials: 'include',
             headers: headers,
             body: new URLSearchParams({
-                "filter": [option]
+                "filter": JSON.stringify(option)
             })
         })).json()
         return data;
