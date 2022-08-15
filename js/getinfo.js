@@ -23,7 +23,7 @@ var getData = async (option) => {
             method: "POST",
             credentials: 'include',
             headers: headers,
-            body: JSON.stringify({filter: option})
+            body: {filter: option}
         })).json()
         return data;
     } catch (error) {
