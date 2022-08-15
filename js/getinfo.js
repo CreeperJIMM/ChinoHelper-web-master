@@ -1,7 +1,7 @@
 let errorObj = { ok: false, data: null }
 let baseURL = "https://api.chinohelper.xyz"
 let headers = {
-    'Content-Type':'text/plain'
+    'Content-Type': 'text/plain'
 }
 
 var iflogin = async () => {
@@ -11,7 +11,7 @@ var iflogin = async () => {
             credentials: 'include',
             headers: headers
         }))
-        if(data.status == 204 || data.status == 200) return true;
+        if (data.status == 204 || data.status == 200) return true;
         return false;
     } catch (error) {
         console.log(error)
@@ -24,7 +24,7 @@ var getData = async (option) => {
             method: "POST",
             credentials: 'include',
             headers: headers,
-            body: JSON.stringify({filter: option})
+            body: { filter: JSON.stringify(option) }
         })).json()
         return data;
     } catch (error) {
