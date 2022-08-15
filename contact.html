@@ -39,11 +39,11 @@
          });
     })
     getData(["username","id","avatar","discriminator","email"]).then((user) => {
-        if(user.username) {
+        if(user.data.username) {
             //$("#username").attr(`disabled`,true)
             $("#username").val(`${user.username}#${user.discriminator}`)
         }
-        if(user.email) {
+        if(user.data.email) {
             //$("#useremail").attr(`disabled`,true)
             $("#useremail").val(`${user.email}`)
         }
