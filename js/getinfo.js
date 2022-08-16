@@ -41,7 +41,7 @@ var getData = async (option) => {
 var getAllData = async (email) => {
     if(discorddata) return discorddata;
     let text = ''
-    if(email) text = '&email=true'
+    if(email) text = '?email=true'
     try {
         let data = await (await fetch(`${baseURL}/user/dc/data`+text, {
             method: "GET",
