@@ -68,7 +68,7 @@ var getEmail = async () => {
         return errorObj;
     }
 }
-var getUserVlaue = async () => {
+var getUserValue = async () => {
     try {
         let data = await (await fetch(`${baseURL}/user/db/value`, {
             method: "GET",
