@@ -20,7 +20,7 @@
 <script src="/js/getinfo.js"></script>
 <script src="/js/newlayout.js"></script>
 <style>
-    #user_avatar {
+    #card_avatar {
         border: 5px;
         width: auto;
         height: 120px;
@@ -29,13 +29,16 @@
 </style>
 <script>
     $(document).ready(async() => {
+        console.log("hi")
         let data = (await getAllData(true)).data;
+        console.log(data)
         document.getElementById("card_avatar").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}`;
         if(data.banner) {
             document.getElementById("card_banner").src = `https://cdn.discordapp.com/banners/${data.id}/${data.banner}?size=2048`
         }else{
             document.getElementById("card_banner").src = `https://dummyimage.com/600x350/${data.banner_color.replace("#","")}.png&text=+`
         }
+        document.getElementById("card_username").innerHTML = `${data.username}#${data.discriminator}`
     })
 </script>
 <body class="d-flex flex-column h-100">
@@ -54,7 +57,7 @@
                         </span>
                         <div class="card-body p-4">
                             <div class="badge bg-primary bg-gradient rounded-pill mb-2">Discord</div>
-                            <a class="text-decoration-none link-dark stretched-link" href="#!"><div id="card_username" class="h5 card-title mb-3"></div></a>
+                            <div id="card_username" class="h5 card-title mb-3"></div>
                             <p id="card_desc" class="card-text mb-0">
                                 <div class="d-flex justify-content-center">
                                     <div class="spinner-border" role="status">
