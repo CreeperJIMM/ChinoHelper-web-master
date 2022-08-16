@@ -25,6 +25,7 @@
     //console.log(formData)
     var form = $(this);
     console.log($('#contactForm').serializeArray())
+    document.getElementById("postmessage").innerHTML = "表單送出中...等待伺服器回應!"
     $.ajax({
            type: "POST",
            url: "https://api.chinohelper.xyz/api/contact/submitform",
@@ -34,7 +35,15 @@
                document.getElementById("postmessage").innerHTML = "表單送出成功!"
            },
            error: function(error) {
-            document.getElementById("postmessage").innerHTML = "表單送出失敗!<br>Error "+error.status
+            switch (error.status) {
+                case 529:
+                    document.getElementById("postmessage").innerHTML = "表單送出失敗!<br>"+error.statusText
+                    break;
+            
+                default:
+                    document.getElementById("postmessage").innerHTML = "表單送出失敗!<br>Error "+error.status
+                    break;
+            }
            }
          });
     })

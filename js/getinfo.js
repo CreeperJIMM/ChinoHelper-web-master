@@ -1,8 +1,10 @@
-let errorObj = { ok: false, data: null }
-let baseURL = "https://api.chinohelper.xyz"
+let errorObj = { ok: false, data: null };
+var baseURL = "https://api.chinohelper.xyz";
 let headers = {
     'Content-Type':'application/x-www-form-urlencoded'
-}
+};
+var haslogin = false;
+var discorddata = null;
 
 var iflogin = async () => {
     try {
@@ -10,7 +12,10 @@ var iflogin = async () => {
             method: "HEAD",
             credentials: 'include'
         }))
-        if(data.status == 204 || data.status == 200) return true;
+        if(data.status == 204 || data.status == 200) {
+            haslogin = true;
+            return true;
+        }
         return false;
     } catch (error) {
         console.log(error)
@@ -34,6 +39,7 @@ var getData = async (option) => {
     }
 }
 var getAllData = async (email) => {
+    if(discorddata) return discorddata;
     let text = ''
     if(email) text = '&email=true'
     try {
@@ -42,6 +48,7 @@ var getAllData = async (email) => {
             credentials: 'include',
             headers: headers
         })).json()
+        discorddata = data;
         return data;
     } catch (error) {
         console.log(error)
