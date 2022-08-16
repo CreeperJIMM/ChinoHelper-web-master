@@ -37,7 +37,7 @@
            error: function(error) {
             switch (error.status) {
                 case 529:
-                    document.getElementById("postmessage").innerHTML = "表單送出失敗!<br>"+error.responseJSON.message
+                    document.getElementById("postmessage").innerHTML = "表單送出失敗!<br>"+JSON.parse(error.responseText).message
                     break;
             
                 default:
