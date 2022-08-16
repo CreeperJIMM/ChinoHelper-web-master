@@ -27,19 +27,22 @@
         height: 120px;
         margin-top: -80px;
     }
+    #card_banner {
+        height: 100px;
+    }
 </style>
 <script>
     (async () => {
-        console.log("hi")
-        let data = (await getAllData(true)).data;
-        console.log(data)
-        document.getElementById("card_avatar").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}`;
-        if (data.banner) {
-            document.getElementById("card_banner").src = `https://cdn.discordapp.com/banners/${data.id}/${data.banner}?size=2048`
+        let user = (await getAllData(true)).data;
+        document.getElementById("card_avatar").src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
+        if (user.banner) {
+            document.getElementById("card_banner").src = `https://cdn.discordapp.com/banners/${user.id}/${user.banner}?size=2048`
         } else {
-            document.getElementById("card_banner").src = `https://dummyimage.com/600x350/${data.banner_color.replace("#", "")}.png&text=+`
+            document.getElementById("card_banner").src = `https://dummyimage.com/600x350/${user.banner_color.replace("#", "")}.png&text=+`
         }
-        document.getElementById("card_username").innerHTML = `${data.username}#${data.discriminator}`
+        document.getElementById("card_username").innerHTML = `${user.username}#${user.discriminator}`
+        let data = (await getUserValue()).data;
+        document.getElementById("card_desc").innerHTML = `Rank ${data.rank}<br>${data.exp} exp<br>${data.money}$<br>`
     })()
 </script>
 
@@ -51,7 +54,7 @@
         <!-- Page Content-->
         <header class="bg-gray py-1">
             <div class="container px-5">
-                <div class="col-lg-4 mb-5">
+                <div class="col-lg-4 mb-5 mx-auto">
                     <div class="card h-100 shadow border-0">
                         <img id="card_banner" class="card-img-top"
                             src="https://dummyimage.com/600x350/499D4E.png&text=+" alt="..." />
@@ -60,15 +63,18 @@
                                 src="https://dummyimage.com/1024/19632d/0011ff.png&text=-ω-" alt="...">
                         </span>
                         <div class="card-body p-4">
-                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">Discord</div>
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">使用Discord登入</div>
                             <div id="card_username" class="h5 card-title mb-3"></div>
                             <p id="card_desc" class="card-text mb-0">
                             <div class="d-flex justify-content-center">
-                                <div class="spinner-border" role="status">
+                                <div class="spinner-border text-info" role="status">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
                             </div>
                             </p>
+                            <div class="text-center">
+                                <a href="/login/logout" class="btn btn-primary">登出</a>
+                                </div>
                         </div>
                     </div>
                     <div class="text-end mb-5 mb-xl-0">
