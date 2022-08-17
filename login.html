@@ -42,7 +42,14 @@
         }
         document.getElementById("card_username").innerHTML = `${user.username}#${user.discriminator}`
         let data = (await getUserValue()).data;
-        document.getElementById("card_desc").innerHTML = `Rank ${data.rank}<br>${data.exp} exp<br>${data.money}$<br>`
+        let full = (1000 + (50 * data.rank))
+        document.getElementById("card_desc").innerHTML = `
+        Rank ${data.rank}
+        <div class="progress">
+            <div id="card_rank_bar" class="progress-bar" style="width: 0%;" aria-valuenow="25">${data.exp}/${full}</div>
+        </div>
+        ${data.money}$<br>`
+        document.getElementById("card_rank_bar").style.width = `${Math.round(data.exp/full)*100}%`
     })()
 </script>
 
