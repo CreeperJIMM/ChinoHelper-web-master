@@ -33,13 +33,13 @@ $(document).ready(function () {
             var box = document.querySelector('#Nword');
             box.style = "width: auto;";
             document.getElementById('Nname').innerHTML = names
-            $('#Nname').fadeIn(500)
+            $('#Nname').fadeIn(500);
             $('#Nchoose').slideToggle("slow");
         }
     });
-    names = "Loading"
+    names = "讀取中..."
     document.getElementById('Nword').innerHTML = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Loading..." width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
-    document.getElementById('Nchoose').innerHTML = `<a href="/sign" style="color: mediumspringgreen;">Link server..</a>`
+    document.getElementById('Nchoose').innerHTML = `<font size="4" style="color: mediumspringgreen;">連接伺服器中</font>`
 });
 (async () => {
     try {
@@ -47,7 +47,7 @@ $(document).ready(function () {
         console.log("%c等一下！！！", 'color:red;background:gray;font-size:72px;font-weight:bold;')
         console.log("%c如果有人叫你在這裡貼上任何程式碼!! \n百分百是你被騙了!!", 'color:blue;background:darkseagreen;font-size:26px;font-weight:bold;')
         console.log("%c使用這個主控台均有可能讓惡意攻擊者使用 Self-XSS 的方式 \n來冒用你的身分並且竊取資訊!!", 'color:red;font-size:22px;font-weight:bold;')    
-        if(!login) return;
+        if(!login) return document.getElementById('Nchoose').innerHTML = `<font size="3" style="color: mediumspringgreen;">連接伺服器失敗!</font>`;
         var userdata = await getData(["username", "id", "avatar"])
     } catch (error) {
         return;
