@@ -1,107 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <!--os-->
-    <title>智乃小幫手 - 用戶面板</title>
-    <meta property="og:title" content="智乃小幫手官方網站">
-    <meta property="og:description" content="用戶面板">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/css/styles.css" rel="stylesheet" />
-    <link href="/css/layout.css" rel="stylesheet" />
-</head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script src="/js/layout.js"></script>
-<script src="/js/getinfo.js"></script>
-<script src="/js/newlayout.js"></script>
-<style>
-    #card_avatar {
-        border: 5px;
-        width: auto;
-        height: 120px;
-        margin-top: -80px;
-    }
-    #card_banner {
-        height: 100px;
-    }
-</style>
-<script>
-    (async () => {
-        let user = (await getAllData(true)).data;
-        document.getElementById("card_avatar").src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
-        if (user.banner) {
-            document.getElementById("card_banner").src = `https://cdn.discordapp.com/banners/${user.id}/${user.banner}?size=2048`
-        } else {
-            document.getElementById("card_banner").src = `https://dummyimage.com/600x350/${user.banner_color.replace("#", "")}.png&text=+`
-        }
-        document.getElementById("card_username").innerHTML = `${user.username}#${user.discriminator}`
-        let data = (await getUserValue()).data;
-        let full = (1000 + (50 * data.rank))
-        document.getElementById("card_desc").innerHTML = `
-        <div style="float:left;">Rank ${data.rank}</div>
-        <div style="float:right;">${data.exp}/${full} Exp</div><br>
-        <div class="progress">        
-            <div id="card_rank_bar1" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%;"></div>
-        </div>
-        💰${data.money}<br>`
-        setTimeout(() => {
-            document.getElementById("card_rank_bar1").style.width = `${Math.round((data.exp/full)*100)}%`;
-        }, 500);
-    })()
-</script>
-
-<body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0">
-        <div id="header-place">你必須開啟Javascript才能運行這個網站!<br>
-            You need to enable JavaScript to run this website.
-        </div>
-        <!-- Page Content-->
-        <header class="bg-gray py-4">
-            <div class="container px-5">
-                <div class="col-lg-4 mb-5 mx-auto">
-                    <div class="card h-100 shadow border-0">
-                        <img id="card_banner" class="card-img-top"
-                            src="https://dummyimage.com/600x350/499D4E.png&text=+" alt="..." />
-                        <span class="text-center">
-                            <img id="card_avatar" class="rounded-circle"
-                                src="https://dummyimage.com/1024/19632d/0011ff.png&text=-ω-" alt="...">
-                        </span>
-                        <div class="card-body p-4">
-                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">使用Discord登入</div>
-                            <div id="card_username" class="h5 card-title mb-3"></div>
-                            <div id="card_desc" class="card-text mb-0">
-                            <div class="d-flex justify-content-center">
-                                <div class="spinner-border text-info" role="status">
-                                    <span class="visually-hidden">Loading...</span>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>智乃小幫手 - 登入</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="/css/layout.css" rel="stylesheet" />
+    </head>
+        <!--layout-->
+        <script src="/js/getinfo.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="877162245319-vkdpkj2v6shsu8ue0rlvb5jrgicinhuo.apps.googleusercontent.com"/>
+        <script src="/js/newlayout.js"></script>
+        <script src="/js/sign.js"></script>
+        <script>
+            let vib = function() {if(navigator.vibrate) navigator.vibrate(50);}
+        </script>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="/">智乃小幫手</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" onclick="vib()" aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="/">首頁</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/about">關於</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact">聯絡我們</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/pricing">加入會員</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">部落格</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="/blog-home">所有文章</a></li>
+                                    <li><a class="dropdown-item" href="/update-log">更新日記</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">資源</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                                    <li><a class="dropdown-item" href="/portfolio-overview">開源</a></li>
+                                    <li><a class="dropdown-item" href="https://docs.chinohelper.xyz">官方文檔</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">智乃選單</h5>
+                  <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                <div>
+                    <div class="list-group">
+                        <a href="/" class="list-group-item list-group-item-action list-group-item-dark">首頁</a>
+                        <a href="/about" class="list-group-item list-group-item-info">關於我們</a>
+                        <a href="/about/chino" class="list-group-item list-group-item-info">認識智乃</a>
+                        <a href="/info" class="list-group-item list-group-item-info">機器人資訊</a>
+                        <hr class="dropdown-divider">用戶功能
+                        <a href="/login/discord" class="list-group-item list-group-item-action list-group-item-dark">用戶面板</a>
+                        <a href="/login" class="list-group-item list-group-item-action list-group-item-secondary">登入狀態</a>
+                        <a href="/login/logout" class="list-group-item list-group-item-action list-group-item-secondary">登出</a>
+                        <hr class="dropdown-divider">指令功能
+                        <a href="/cmd" class="list-group-item list-group-item-action list-group-item-dark">指令區</a>
+                        <hr class="dropdown-divider">伺服器功能
+                        <a href="/guild/dashboard" class="list-group-item list-group-item-action list-group-item-dark">伺服器列表</a>
+                        <a href="/guild/music/dashboard" class="list-group-item list-group-item-action list-group-item-secondary">音樂控制區</a>
+                      </div>
+                </div>
+                  <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                      語言設置
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="#">繁體中文</a></li>
+                      <li><a class="dropdown-item" href="#">English</a></li>
+                      <li><a class="dropdown-item" href="#">日本語</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <font size="5%"> 
+                <div id="Nword"></div> 
+                <div id="Nchoose"></div>
+            </font>
+            <header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">請選擇登入方式!</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">如果是第一次登入請用Discord登入!</p>
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <a class="btn btn-primary btn-lg text-uppercase" onclick="discordlogin()"><img src="https://i.imgur.com/KrlQxQb.png" width="25px" height="25px"> 登入</a>
+                                        </div>
                                 </div>
+                                <p class="lead fw-normal text-white-50 mb-3">第三方登入</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                      <a class="btn btn-lg btn-google btn-light text-uppercase" onclick="googlelogin()"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> 登入</a>
+                                    </div>
+                                </div>
+                                <div id="pin_type"></div>
+                                <br />
+                                <a href="/login/link">🔗將第三方登入連結discord</a>
                             </div>
                         </div>
-                            <div class="text-center py-3">
-                                <a href="/login/logout" class="btn btn-primary">登出</a>
-                                </div>
-                        </div>
                     </div>
-                    <div class="text-end mb-5 mb-xl-0">
-                        <a class="text-decoration-none" href="/profile">
-                            更多資料
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                </div>
+            </header>
+        </main>
+        <!-- Footer--> 
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; 智乃小幫手 2021</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="/privacy">隱私權條款</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="/terms">服務條款</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="https://discord.gg/P2yg5V2">錯誤回報</a>
                     </div>
                 </div>
             </div>
-        </header>
+        </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
-    </main>
-    <footer id="footer-place" class="bg-dark py-4 mt-auto"></footer>
-</body>
-
+    </body>
 </html>
