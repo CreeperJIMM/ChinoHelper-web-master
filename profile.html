@@ -19,6 +19,17 @@
 <script src="/js/layout.js"></script>
 <script src="/js/getinfo.js"></script>
 <script src="/js/newlayout.js"></script>
+<style>
+    #card_avatar {
+        border: 5px;
+        width: auto;
+        height: 120px;
+        margin-top: -80px;
+    }
+    #card_banner {
+        height: 100px;
+    }
+</style>
 <script>
     (async () => {
         let user = (await getAllData(true)).data;
@@ -55,6 +66,7 @@
                     <div class="col-lg-8 col-xl-7 col-xxl-6">
                         <div class="my-5 text-center text-xl-start">
                             <h1 class="display-5 fw-bolder text-white mb-2">個人資料</h1>
+                            <div class="col-lg-4 mb-5 mx-auto">
                             <div class="card h-100 shadow border-0">
                                 <img id="card_banner" class="card-img-top"
                                     src="https://dummyimage.com/600x350/499D4E.png&text=+" alt="..." />
@@ -80,6 +92,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </header>
         <!-- Bootstrap core JS-->
