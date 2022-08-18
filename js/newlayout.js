@@ -66,7 +66,7 @@ $(document).ready(function () {
     let user = '<dc><img id="user_avatar" src="https://i.imgur.com/UWlIo9E.png" title="Discord登入" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b></dc>';
     if (userdata.data) {
         names = userdata.data.username
-        user = `<dc data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="${userdata.username}"> <img id="user_avatar" src="https://cdn.discordapp.com/avatars/${userdata.data.id}/${userdata.data.avatar}.png" title="${userdata.data.username}" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b> </dc>`;
+        user = `<dc> <img id="user_avatar" src="https://cdn.discordapp.com/avatars/${userdata.data.id}/${userdata.data.avatar}.png" title="${userdata.data.username}" width="50" height="50" alien="rig"><b id="Nname" style="color: #6f6eeb;"></b> </dc>`;
         desc = `|<a href="/profile" style="color: mediumspringgreen;">個人</a>|<a href="/login/logout" style="color: mediumspringgreen;">登出</a>|<br>|<a href="/login/status" style="color: mediumspringgreen;">登入狀態</a>|`
     };
     setTimeout(async() => {
