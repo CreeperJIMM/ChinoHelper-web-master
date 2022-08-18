@@ -15,6 +15,8 @@ var iflogin = async () => {
         if(data.status == 204 || data.status == 200) {
             haslogin = true;
             return true;
+        }else if(data.status == 401) {
+            return errorObj;
         }
         return false;
     } catch (error) {
