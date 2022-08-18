@@ -48,7 +48,9 @@ $(document).ready(function () {
         console.log("%c如果有人叫你在這裡貼上任何程式碼!! \n百分百是你被騙了!!", 'color:blue;background:darkseagreen;font-size:26px;font-weight:bold;')
         console.log("%c使用這個主控台均有可能讓惡意攻擊者使用 Self-XSS 的方式 \n來冒用你的身分並且竊取資訊!!", 'color:red;font-size:22px;font-weight:bold;')    
         if(!login) return document.getElementById('Nchoose').innerHTML = `<font size="3" style="color: mediumspringgreen;">連接伺服器失敗!</font>`;
-        var userdata = await getData(["username", "id", "avatar"])
+        if(!login.ok) {
+            var userdata = await getData(["username", "id", "avatar"]);
+        }
     } catch (error) {
         return;
     }
