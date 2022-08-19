@@ -6,6 +6,7 @@ let headers = {
 var cache = {
     iflogin: null,
     dc_data: null,
+    dc_guilds: null,
     db_value: null,
     db_data: null
 }
@@ -69,6 +70,21 @@ var getEmail = async () => {
             credentials: 'include',
             headers: headers
         })).json()
+        return data
+    } catch (error) {
+        console.log(error)
+        return errorObj;
+    }
+}
+var getGuilds = async (iscache) => {
+    if(cache.dc_guilds && iscache) return cache.dc_guilds;
+    try {
+        let data = await (await fetch(`${baseURL}/user/dc/guilds`, {
+            method: "GET",
+            credentials: 'include',
+            headers: headers
+        })).json()
+        cache.dc_guilds = data;
         return data
     } catch (error) {
         console.log(error)
