@@ -3,17 +3,22 @@ var baseURL = "https://api.chinohelper.xyz";
 let headers = {
     'Content-Type':'application/x-www-form-urlencoded'
 };
-var haslogin = false;
-var discorddata = null;
+var cache = {
+    iflogin: null,
+    dc_data: null,
+    db_value: null,
+    db_data: null
+}
 
-var iflogin = async () => {
+var iflogin = async (iscache) => {
+    if(cache.iflogin && iscache) return true;
     try {
         let data = await (await fetch(`${baseURL}/user/dc/haslogin`, {
             method: "HEAD",
             credentials: 'include'
         }))
         if(data.status == 204 || data.status == 200) {
-            haslogin = true;
+            cache.iflogin = true;
             return true;
         }else if(data.status == 401) {
             return errorObj;
@@ -40,8 +45,8 @@ var getData = async (option) => {
         return errorObj;
     }
 }
-var getAllData = async (email) => {
-    if(discorddata) return discorddata;
+var getAllData = async (email,iscache) => {
+    if(cache.data && iscache) return cache.dc_data;
     let text = ''
     if(email) text = '?email=true'
     try {
@@ -50,7 +55,7 @@ var getAllData = async (email) => {
             credentials: 'include',
             headers: headers
         })).json()
-        discorddata = data;
+        cache.dc_data = data;
         return data;
     } catch (error) {
         console.log(error)
@@ -70,26 +75,30 @@ var getEmail = async () => {
         return errorObj;
     }
 }
-var getUserValue = async () => {
+var getUserValue = async (iscache) => {
+    if(cache.db_value && iscache) return cache.db_value;
     try {
         let data = await (await fetch(`${baseURL}/user/db/value`, {
             method: "GET",
             credentials: 'include',
             headers: headers
         })).json()
+        cache.db_value = cache.db_value;
         return data
     } catch (error) {
         console.log(error)
         return errorObj;
     }
 }
-var getUserData = async () => {
+var getUserData = async (iscache) => {
+    if(cache.db_data && iscache) return cache.db_data;
     try {
         let data = await (await fetch(`${baseURL}/user/db/data`, {
             method: "GET",
             credentials: 'include',
             headers: headers
         })).json()
+        cache.dc_data = data;
         return data
     } catch (error) {
         console.log(error)

@@ -1,5 +1,5 @@
 (async () => {
-    let user = (await getAllData(true)).data;
+    let user = (await getAllData(true,true)).data;
     document.getElementById("card_avatar").src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
     if (user.banner) {
         document.getElementById("card_banner").src = `https://cdn.discordapp.com/banners/${user.id}/${user.banner}?size=2048`

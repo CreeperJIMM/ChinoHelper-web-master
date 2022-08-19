@@ -24,3 +24,8 @@ var googlelogin = async function () {
         " toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"
     );
 }
+(async () => {
+    if(iflogin(true)) {
+        document.location.href = "/login/status";
+    }
+})()
