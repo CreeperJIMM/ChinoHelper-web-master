@@ -21,11 +21,18 @@
 <script src="/js/getinfo.js"></script>
 <script src="/js/newlayout.js"></script>
 <style>
-    #card_avatar, #card_server_avatar {
+    #card_avatar {
         border: 5px;
         width: auto;
         height: 120px;
         margin-top: -80px;
+    }
+    #card_server_avatar {
+        border: 5px;
+        width: auto;
+        height: 90px;
+        margin-top: -125px;
+        margin-right:200px;
     }
     #card_banner, #card_server_banner {
         height: 100px;
@@ -106,7 +113,7 @@
                                             <img id="card_server_avatar" class="rounded-circle"
                                                 src="https://dummyimage.com/1024/19632d/0011ff.png&text=+" alt="...">
                                         </span>
-                                        <div class="card-body p-4">
+                                        <div class="card-body p-2">
                                             <div id="card_server_name" class="h5 card-title mb-3"></div>
                                             <div id="card_server_desc" class="card-text mb-0">
                                                 <div class="d-flex justify-content-center">
@@ -116,7 +123,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-end py-1">
-                                                <a href="/login/logout" class="btn btn-primary">管理</a>
+                                                <a class="btn btn-primary">管理</a>
                                             </div>
                                         </div>
                                     </div>
