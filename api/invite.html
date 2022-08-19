@@ -8,7 +8,7 @@
         let guild_id = ""
         if(urlParams.has('id')) guild_id = `&guild_id=${urlParams.get('id')}`;
         setTimeout(() => {
-            location.href = "https://discord.com/oauth2/authorize?client_id=731408794948730961&scope=applications.commands%20bot&permissions=1476668478"+guild_id;
+            location.href = "https://discord.com/oauth2/authorize?client_id=731408794948730961&permissions=1476668478&redirect_uri=https%3A%2F%2Fapi.chinohelper.xyz%2Finvite%2Fbot&response_type=code&scope=bot%20applications.commands"+guild_id;
         }, 500);
     </script>
     <body>
