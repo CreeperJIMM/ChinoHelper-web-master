@@ -32,7 +32,6 @@ let guildsample = function(guild) {
     </div>`
 }
 let invitebutton = function(id) {
-    console.log(id)
     return `<div class="text-end py-1">
     <a onclick="discordinvite(${id})" class="btn btn-secondary">新增</a>
 </div>`
@@ -46,7 +45,7 @@ var discordinvite = async function (id) {
     let w = document.body.clientWidth / 3;
     let h = document.body.clientHeight / 3;
     window.open(
-        "/api/invite?id="+id,
+        `/api/invite?id=${id}`,
         "newwindow",
         "width=500,height=810,top=" +
         h +
