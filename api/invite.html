@@ -5,9 +5,10 @@
     </head>
     <script>
         let urlParams = new URLSearchParams(window.location.search);
-        let guild_id = urlParams.get('id');
+        let guild_id = ""
+        if(urlParams.has('id')) guild_id = `&guild_id=${urlParams.get('id')}`;
         setTimeout(() => {
-            location.href = "https://discord.com/oauth2/authorize?client_id=731408794948730961&scope=applications.commands%20bot&permissions=1476668478&guild_id="+guild_id;
+            location.href = "https://discord.com/oauth2/authorize?client_id=731408794948730961&scope=applications.commands%20bot&permissions=1476668478"+guild_id;
         }, 500);
     </script>
     <body>
