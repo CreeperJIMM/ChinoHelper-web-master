@@ -1,5 +1,5 @@
-let cookieuse = document.getElementById('cookieToast');
+var cookieToast = document.getElementById('cookieToast');
 var showCookieToast = async function() {
-    var toast = new bootstrap.Toast(cookieuse);
+    var toast = new bootstrap.Toast(cookieToast);
     toast.show()
 }
