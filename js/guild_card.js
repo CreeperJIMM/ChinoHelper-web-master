@@ -11,7 +11,7 @@
 let guildsample = function(guild) {
     let user = "管理員";
     if(guild.owner) user = "服主"
-    let button = invitebutton(id);
+    let button = invitebutton(guild.id);
     if(guild.exist) button = mangebutton(guild.id)
     return `<div class="col-lg-8 col-xl-8 mb-2">
     <div class="card h-100 shadow border-0">
