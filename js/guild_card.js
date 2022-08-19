@@ -42,6 +42,7 @@ let mangebutton = function(id) {
 </div>`
 }
 var discordinvite = async function (id) {
+    console.log(id)
     let w = document.body.clientWidth / 3;
     let h = document.body.clientHeight / 3;
     window.open(
