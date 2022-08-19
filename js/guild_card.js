@@ -1,9 +1,7 @@
 (async () => {
     let serverlist = []
     let guilds = (await getGuilds(true)).data;
-    guilds.sort(function (a, b) {
-        return a.exist - b.exist;
-    });
+    guilds.sort((x, y) => Number(y) - Number(x));
     guilds.forEach(guild => {
         console.log(guild.name)
         serverlist.push(guildsample(guild));
@@ -35,7 +33,7 @@ let guildsample = function(guild) {
 }
 let invitebutton = function() {
     return `<div class="text-end py-1">
-    <a onclick="discordinvite()" class="btn btn-primary">新增</a>
+    <a onclick="discordinvite()" class="btn btn-secondary">新增</a>
 </div>`
 }
 let mangebutton = function(id) {
