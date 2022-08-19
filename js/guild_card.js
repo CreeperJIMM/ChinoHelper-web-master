@@ -3,7 +3,6 @@
     let guilds = (await getGuilds(true)).data;
     guilds.sort((x, y) => Number(y) - Number(x));
     guilds.forEach(guild => {
-        console.log(guild.name)
         serverlist.push(guildsample(guild));
     });
     document.getElementById("server_list").innerHTML = serverlist.join("\n");
