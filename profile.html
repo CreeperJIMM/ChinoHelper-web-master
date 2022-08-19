@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <!--os-->
     <title>智乃小幫手 - 用戶面板</title>
-    <meta property="og:title" content="智乃小幫手官方網站" >
-    <meta property="og:description" content="用戶面板" >
+    <meta property="og:title" content="智乃小幫手官方網站">
+    <meta property="og:description" content="用戶面板">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
@@ -26,6 +27,7 @@
         height: 120px;
         margin-top: -80px;
     }
+
     #card_banner {
         height: 100px;
     }
@@ -50,81 +52,82 @@
         </div>
         💰${data.money}<br>`
         setTimeout(() => {
-            document.getElementById("card_rank_bar1").style.width = `${Math.round((data.exp/full)*100)}%`;
+            document.getElementById("card_rank_bar1").style.width = `${Math.round((data.exp / full) * 100)}%`;
         }, 500);
     })()
 </script>
+
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <div id="header-place">你必須開啟Javascript才能運行這個網站!<br>
             You need to enable JavaScript to run this website.
         </div>
         <!-- Page Content-->
-        <header class="bg-gray py-1">
+        <header class="bg-gray py-3">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center justify-content-left">
                     <h1 class="display-5 fw-bolder text-white mb-2">個人資料</h1>
-                    <div class="col-lg-8 col-xl-7 col-xxl-6">
-                        <div class="my-5 text-left text-xl-start">
-                            <div class="row">
-                            <div class="col-lg-5 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img id="card_banner" class="card-img-top"
-                                    src="https://dummyimage.com/600x350/499D4E.png&text=+" alt="..." />
-                                <span class="text-center">
-                                    <img id="card_avatar" class="rounded-circle"
-                                        src="https://dummyimage.com/1024/19632d/0011ff.png&text=-ω-" alt="...">
-                                </span>
-                                <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">使用Discord登入</div>
-                                    <div id="card_username" class="h5 card-title mb-3"></div>
-                                    <div id="card_desc" class="card-text mb-0">
-                                    <div class="d-flex justify-content-center">
-                                        <div class="spinner-border text-info" role="status">
-                                            <span class="visually-hidden">Loading...</span>
+                    <div class="row">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-left text-xl-start">
+                                <div class="col-lg-5 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img id="card_banner" class="card-img-top"
+                                            src="https://dummyimage.com/600x350/499D4E.png&text=+" alt="..." />
+                                        <span class="text-center">
+                                            <img id="card_avatar" class="rounded-circle"
+                                                src="https://dummyimage.com/1024/19632d/0011ff.png&text=-ω-" alt="...">
+                                        </span>
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">使用Discord登入
+                                            </div>
+                                            <div id="card_username" class="h5 card-title mb-3"></div>
+                                            <div id="card_desc" class="card-text mb-0">
+                                                <div class="d-flex justify-content-center">
+                                                    <div class="spinner-border text-info" role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-center py-3">
+                                                <a href="/login/logout" class="btn btn-primary">登出</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="text-center py-3">
-                                        <a href="/login/logout" class="btn btn-primary">登出</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-left text-xl-start">
+                                <div class="col-lg-5 mb-5">
+                                    <div class="card h-100 shadow border-0">
+                                        <img id="card_banner" class="card-img-top"
+                                            src="https://dummyimage.com/600x350/499D4E.png&text=+" alt="..." />
+                                        <span class="text-center">
+                                            <img id="card_avatar" class="rounded-circle"
+                                                src="https://dummyimage.com/1024/19632d/0011ff.png&text=-ω-" alt="...">
+                                        </span>
+                                        <div class="card-body p-4">
+                                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">使用Discord登入
+                                            </div>
+                                            <div id="card_username" class="h5 card-title mb-3"></div>
+                                            <div id="card_desc" class="card-text mb-0">
+                                                <div class="d-flex justify-content-center">
+                                                    <div class="spinner-border text-info" role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="text-center py-3">
+                                                <a href="/login/logout" class="btn btn-primary">登出</a>
+                                            </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!--test-->
-            <div class="col-lg-8 col-xl-7 col-xxl-6">
-                <div class="my-5 text-left text-xl-start">
-                    <div class="row">
-                    <div class="col-lg-5 mb-5">
-                    <div class="card h-100 shadow border-0">
-                        <img id="card_banner" class="card-img-top"
-                            src="https://dummyimage.com/600x350/499D4E.png&text=+" alt="..." />
-                        <span class="text-center">
-                            <img id="card_avatar" class="rounded-circle"
-                                src="https://dummyimage.com/1024/19632d/0011ff.png&text=-ω-" alt="...">
-                        </span>
-                        <div class="card-body p-4">
-                            <div class="badge bg-primary bg-gradient rounded-pill mb-2">使用Discord登入</div>
-                            <div id="card_username" class="h5 card-title mb-3"></div>
-                            <div id="card_desc" class="card-text mb-0">
-                            <div class="d-flex justify-content-center">
-                                <div class="spinner-border text-info" role="status">
-                                    <span class="visually-hidden">Loading...</span>
-                                </div>
-                            </div>
-                        </div>
-                            <div class="text-center py-3">
-                                <a href="/login/logout" class="btn btn-primary">登出</a>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-            </div>
             </div>
         </header>
         <!-- Bootstrap core JS-->
