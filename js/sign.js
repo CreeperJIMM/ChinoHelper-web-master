@@ -1,3 +1,9 @@
+(async () => {
+    if(iflogin(true)) {
+        document.location.href = "/login/status";
+    }
+})()
+
 var discordlogin = async function () {
     let w = document.body.clientWidth / 3;
     let h = document.body.clientHeight / 3;
@@ -24,8 +30,3 @@ var googlelogin = async function () {
         " toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"
     );
 }
-(async () => {
-    if(iflogin(true)) {
-        document.location.href = "/login/status";
-    }
-})()
