@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>跳轉中...</title>
+    </head>
+    <script>
+        if(opener) {
+            let urlParams = new URLSearchParams(window.location.search);
+            let guild_id = urlParams.get('id');
+            opener.location.href = "/server/"+guild_id;
+            setTimeout(() => {
+                window.close();
+            }, 500);
+        }
+    </script>
+    <body>
+        此頁面會自動關閉<br>
+        若沒有關閉請點 <button onclick="window.close();">這裡</button>
+    </body>
+</html>
