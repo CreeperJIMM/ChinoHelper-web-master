@@ -19,7 +19,7 @@
     let text = {
         marry: "單身"
     }
-    if(data.marry) 
+    if(data.marry) text.marry = "脫單"
     document.getElementById("card_info").innerHTML = `感情狀況 ${text.marry}<br>
     偏好語言 ${data.language}<br>
     觸圖資料<br>
