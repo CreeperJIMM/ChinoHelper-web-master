@@ -12,7 +12,7 @@ let guildsample = function(guild) {
     let user = "管理員";
     if(guild.owner) user = "服主"
     let button = invitebutton(guild.id);
-    if(guild.exist) button = mangebutton(guild.id)
+    if(guild.exist) button = mangebutton(guild.id);
     return `<div class="col-lg-8 col-xl-8 mb-2">
     <div class="card h-100 shadow border-0">
         <img id="card_server_banner" class="card-img-top"
@@ -32,6 +32,7 @@ let guildsample = function(guild) {
     </div>`
 }
 let invitebutton = function(id) {
+    console.log(id)
     return `<div class="text-end py-1">
     <a onclick="discordinvite(${id})" class="btn btn-secondary">新增</a>
 </div>`
