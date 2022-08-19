@@ -33,7 +33,7 @@ let guildsample = function(guild) {
 }
 let invitebutton = function(id) {
     return `<div class="text-end py-1">
-    <a onclick="discordinvite("${id}")" class="btn btn-secondary">新增</a>
+    <a onclick="discordinvite(${id})" class="btn btn-secondary">新增</a>
 </div>`
 }
 let mangebutton = function(id) {
