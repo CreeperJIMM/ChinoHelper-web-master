@@ -22,14 +22,7 @@
 <script src="/js/ApiCommand.js"></script>
 <script>
     var myModal = document.getElementById('logoutModal');
-    (async() => {
-        let iflogin = await iflogin(true);
-        if(iflogin) {
-            myModal.show()
-        }else{
-            location.href = "/login"
-        }
-    })
+    myModal.show()
     myModal.addEventListener('hidden.bs.modal', function () {
         history.go(-1);
     })
