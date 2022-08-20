@@ -27,7 +27,8 @@
     })
     myModal.show()
     });
-    myModal.addEventListener('hidden.bs.modal', function () {
+    var myModalEl = document.getElementById('logoutModal');
+    myModalEl.addEventListener('hidden.bs.modal', function () {
         history.go(-1);
     });
     var LogoutConfirm = function () {
