@@ -9,6 +9,10 @@
     document.getElementById("card_username").innerHTML = `${user.username}#${user.discriminator}`
     let data = (await getUserValue()).data;
     let full = (1000 + (50 * data.rank))
+    setTimeout(() => {
+        document.getElementById("card_rank_bar1").style.width = `${Math.round((data.exp/full)*100)}%`;
+    }, 500);
+    if(!document.getElementById("card_info")) return;
     document.getElementById("card_desc").innerHTML = `
     <div style="float:left;">Rank ${data.rank}</div>
     <div style="float:right;">${data.exp}/${full} Exp</div><br>
@@ -30,7 +34,4 @@
     ● 其他 ${data.image.times.other}次<br>
     初見智乃 ${new Date(data.time).toLocaleString()}
     `
-    setTimeout(() => {
-        document.getElementById("card_rank_bar1").style.width = `${Math.round((data.exp/full)*100)}%`;
-    }, 500);
 })()
