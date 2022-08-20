@@ -50,6 +50,10 @@ $(document).ready(function () {
         if(!login) return document.getElementById('Nchoose').innerHTML = `<font size="3" style="color: mediumspringgreen;">連接伺服器失敗!</font>`;
         if(!login.ok) {
             var userdata = await getData(["username", "id", "avatar"]);
+        }else{
+            needloginpath.forEach(path => {
+                if(location.pathname.startsWith(path)) return location.href = "/login";
+            });
         }
     } catch (error) {
         return;
@@ -79,3 +83,9 @@ $(document).ready(function () {
     setTimeout(() => {document.getElementById('googleADs2').innerHTML = '<font size="4.8%"> <div id="GoogleADs2" style="display:flex;">我們需要廣告以維持經營。<br>請關閉您的廣告攔截程式。</div> </font>';document.getElementById('googleADs1').innerHTML = '<font size="4.8%"> <div id="GoogleADs1">我們需要廣告以維持經營。<br>請關閉您的廣告攔截程式。</div> </font>'}, 300);}
     */
 })()
+let needloginpath = [
+    "/login/",
+    "/profile",
+    "/server",
+    "/cmd"
+]
