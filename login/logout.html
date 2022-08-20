@@ -26,10 +26,10 @@
         keyboard: false
     })
     myModal.show()
-    });
     var myModalEl = document.getElementById('logoutModal');
     myModalEl.addEventListener('hidden.bs.modal', function () {
         history.go(-1);
+    });
     });
     var LogoutConfirm = function () {
         api.logout()
