@@ -21,7 +21,9 @@
 <script src="/js/getinfo.js"></script>
 <script src="/js/ApiCommand.js"></script>
 <script>
-    var myModal = document.getElementById('logoutModal');
+    var myModal = new bootstrap.Modal(document.getElementById('logoutModal'), {
+        keyboard: false
+    })
     myModal.show()
     myModal.addEventListener('hidden.bs.modal', function () {
         history.go(-1);
@@ -57,7 +59,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">確認登出?</h5>
+                        <h5 class="modal-title text-dark" id="staticBackdropLabel">確認登出?</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
