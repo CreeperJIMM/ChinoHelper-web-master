@@ -21,16 +21,18 @@
 <script src="/js/getinfo.js"></script>
 <script src="/js/ApiCommand.js"></script>
 <script>
-    var myModal = new bootstrap.Modal(document.getElementById('logoutModal'), {
+    $(document).ready(() => {
+        var myModal = new bootstrap.Modal(document.getElementById('logoutModal'), {
         keyboard: false
     })
     myModal.show()
+    });
     myModal.addEventListener('hidden.bs.modal', function () {
         history.go(-1);
-    })
+    });
     var LogoutConfirm = function () {
         api.logout()
-    }
+    };
 </script>
 
 <body class="d-flex flex-column h-100">
