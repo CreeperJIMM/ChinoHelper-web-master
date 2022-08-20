@@ -12,26 +12,27 @@
     setTimeout(() => {
         document.getElementById("card_rank_bar1").style.width = `${Math.round((data.exp/full)*100)}%`;
     }, 500);
-    if(!document.getElementById("card_info")) return;
-    document.getElementById("card_desc").innerHTML = `
-    <div style="float:left;">Rank ${data.rank}</div>
-    <div style="float:right;">${data.exp}/${full} Exp</div><br>
-    <div class="progress">        
-        <div id="card_rank_bar1" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%;"></div>
-    </div>
-    💰${data.money}<br>`
-    let text = {
-        marry: "單身"
+    if(document.getElementById("card_info")) {
+        document.getElementById("card_desc").innerHTML = `
+        <div style="float:left;">Rank ${data.rank}</div>
+        <div style="float:right;">${data.exp}/${full} Exp</div><br>
+        <div class="progress">        
+            <div id="card_rank_bar1" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 0%;"></div>
+        </div>
+        💰${data.money}<br>`
+        let text = {
+            marry: "單身"
+        }
+        if(data.marry) text.marry = "脫單"
+        document.getElementById("card_info").innerHTML = `感情狀況 ${text.marry}<br>
+        偏好語言 ${data.language}<br>
+        觸圖資料<br>
+        ● 智乃 ${data.image.times.chino}次<br>
+        ● 心愛 ${data.image.times.cocoa}次<br>
+        ● 蘿莉 ${data.image.times.loli}次<br>
+        ● VTuber ${data.image.times.vtuber}次<br>
+        ● 其他 ${data.image.times.other}次<br>
+        初見智乃 ${new Date(data.time).toLocaleString()}
+        `
     }
-    if(data.marry) text.marry = "脫單"
-    document.getElementById("card_info").innerHTML = `感情狀況 ${text.marry}<br>
-    偏好語言 ${data.language}<br>
-    觸圖資料<br>
-    ● 智乃 ${data.image.times.chino}次<br>
-    ● 心愛 ${data.image.times.cocoa}次<br>
-    ● 蘿莉 ${data.image.times.loli}次<br>
-    ● VTuber ${data.image.times.vtuber}次<br>
-    ● 其他 ${data.image.times.other}次<br>
-    初見智乃 ${new Date(data.time).toLocaleString()}
-    `
 })()
