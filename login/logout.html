@@ -32,8 +32,8 @@
     });
     });
     var LogoutConfirm = async function () {
-        let out = (await api.logout())
-        if(out.status) {
+        let out = await api.logout()
+        if(out) {
             location.href = "/"
         }
     };
