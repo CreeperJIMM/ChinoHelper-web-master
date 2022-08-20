@@ -1,6 +1,6 @@
 (async () => {
     let haslogin = await iflogin(true);
-    if(!haslogin.data) {
+    if(haslogin.data) {
         document.location.href = "/login/status";
     }
 })()
