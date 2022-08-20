@@ -12,15 +12,15 @@ var cache = {
 }
 
 var iflogin = async (iscache) => {
-    if(cache.iflogin && iscache) return true;
+    if(cache.iflogin && iscache) return cache.iflogin;
     try {
         let data = await (await fetch(`${baseURL}/user/dc/haslogin`, {
             method: "HEAD",
             credentials: 'include'
         }))
         if(data.status == 204 || data.status == 200) {
-            cache.iflogin = true;
-            return true;
+            cache.iflogin = {ok: true,data: true};
+            return {ok: true,data: true};
         }else if(data.status == 401) {
             return errorObj;
         }
